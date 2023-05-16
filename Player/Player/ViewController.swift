@@ -53,7 +53,11 @@ class ViewController: UIViewController {
         
     }
     
-
+    private lazy var songButton: UIButton = {
+        let btn = UIButton()
+        btn.backgroundColor = .black
+        return btn
+        }()
     
     @IBAction func buttonSongOne(_ sender: UIButton) {
         let play = UIStoryboard(name: "Main", bundle: nil)
@@ -108,3 +112,84 @@ class ViewController: UIViewController {
     }
 
 
+//
+//  ViewController.swift
+//  UiKit Lesson Three
+//
+//  Created by Алена Панченко on 29.08.2022.
+//
+
+
+//import UIKit
+//
+//final class ViewController: UIViewController {
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        configureSubviews()
+//        setBackground()
+//        setSongs()
+//    }
+//
+//    private var model = Model(counter: 0)
+//
+//    private lazy var label: UILabel = {
+//        let label = UILabel()
+//        label.textColor = .black
+//        label.frame = CGRect(x: 90, y: 400, width: 150, height: 80)
+//        label.backgroundColor = UIColor.red
+//        return label
+//    }()
+//
+//    private lazy var startButton: UIButton = {
+//        var btn = UIButton()
+//        btn.setTitle("Введите число", for: .normal)
+//        btn.setTitleColor(.red, for: .normal)
+//        btn.frame = CGRect(x: label.frame.minX + 10, y: 200, width: 150, height: 50)
+//        btn.addTarget(self, action: #selector(buttonType), for: .touchUpInside)
+//        return btn
+//    }()
+//
+//    var songs: [Song] = [Song(name: "name1", duration: "3.59", imageName: "image1"),
+//                         Song(name: "name2", duration: "3.59", imageName: "image1"),
+//                         Song(name: "name3", duration: "3.59", imageName: "image1")
+//
+//    ]
+//
+//    private func setSongs() {
+//        var height = 0
+//        for (index, value) in songs.enumerated() {
+//            let btn = UIButton()
+//            btn.tag = index
+//            btn.addTarget(self, action: #selector(buttonType), for: .touchUpInside)
+//            let image = UIImageView()
+//            image.image = UIImage(named: value.imageName)
+//            btn.frame = CGRect(x: 50, y: height, width: 50, height: 30)
+//            height += 50
+//
+//        }
+//    }
+//
+//    private func setBackground() {
+//        view.backgroundColor = .blue
+//    }
+//
+//    private func configureSubviews() {
+//        view.addSubview(label)
+//        view.addSubview(startButton)
+//    }
+//
+//    @objc private func buttonType(sender: UIButton) {
+//
+//      print(songs[sender.tag])
+//        model.counter += 1
+//        label.text = "\(model.counter)"
+//    }
+//
+//}
+//
+//struct Song {
+//    let name: String
+//    let duration: String
+//    let imageName: String
+//}
