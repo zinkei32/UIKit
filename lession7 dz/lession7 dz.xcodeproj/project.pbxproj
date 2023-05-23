@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		793D975B2A1CDB6100A72C67 /* ViewControllerFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793D975A2A1CDB6100A72C67 /* ViewControllerFour.swift */; };
 		79A116522A16207B002E7142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A116512A16207B002E7142 /* AppDelegate.swift */; };
 		79A116542A16207B002E7142 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A116532A16207B002E7142 /* SceneDelegate.swift */; };
 		79A116562A16207B002E7142 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A116552A16207B002E7142 /* ViewController.swift */; };
@@ -20,9 +21,13 @@
 		79A116702A1640B3002E7142 /* Alphard.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 79A1166D2A1640B2002E7142 /* Alphard.jpeg */; };
 		79A116712A1640B3002E7142 /* ravGold.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 79A1166E2A1640B2002E7142 /* ravGold.jpg */; };
 		79A116722A1640B3002E7142 /* ravBlue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 79A1166F2A1640B3002E7142 /* ravBlue.jpg */; };
+		79A116762A1CA855002E7142 /* rav3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 79A116732A1CA854002E7142 /* rav3.jpg */; };
+		79A116772A1CA855002E7142 /* rav2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 79A116742A1CA855002E7142 /* rav2.jpg */; };
+		79A116782A1CA855002E7142 /* rav1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 79A116752A1CA855002E7142 /* rav1.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		793D975A2A1CDB6100A72C67 /* ViewControllerFour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFour.swift; sourceTree = "<group>"; };
 		79A1164E2A16207B002E7142 /* lession7 dz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lession7 dz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79A116512A16207B002E7142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79A116532A16207B002E7142 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +43,9 @@
 		79A1166D2A1640B2002E7142 /* Alphard.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Alphard.jpeg; sourceTree = "<group>"; };
 		79A1166E2A1640B2002E7142 /* ravGold.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ravGold.jpg; sourceTree = "<group>"; };
 		79A1166F2A1640B3002E7142 /* ravBlue.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ravBlue.jpg; sourceTree = "<group>"; };
+		79A116732A1CA854002E7142 /* rav3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rav3.jpg; sourceTree = "<group>"; };
+		79A116742A1CA855002E7142 /* rav2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rav2.jpg; sourceTree = "<group>"; };
+		79A116752A1CA855002E7142 /* rav1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rav1.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +78,9 @@
 		79A116502A16207B002E7142 /* lession7 dz */ = {
 			isa = PBXGroup;
 			children = (
+				79A116752A1CA855002E7142 /* rav1.jpg */,
+				79A116742A1CA855002E7142 /* rav2.jpg */,
+				79A116732A1CA854002E7142 /* rav3.jpg */,
 				79A116692A162875002E7142 /* car sale.jpeg */,
 				79A1166B2A163837002E7142 /* eyeshow.png */,
 				79A1166D2A1640B2002E7142 /* Alphard.jpeg */,
@@ -77,6 +88,7 @@
 				79A1166E2A1640B2002E7142 /* ravGold.jpg */,
 				79A116652A1620D7002E7142 /* ViewControllerTwo.swift */,
 				79A116672A1620EF002E7142 /* ViewControllerTree.swift */,
+				793D975A2A1CDB6100A72C67 /* ViewControllerFour.swift */,
 				79A116512A16207B002E7142 /* AppDelegate.swift */,
 				79A116532A16207B002E7142 /* SceneDelegate.swift */,
 				79A116552A16207B002E7142 /* ViewController.swift */,
@@ -149,8 +161,11 @@
 				79A116702A1640B3002E7142 /* Alphard.jpeg in Resources */,
 				79A1166A2A162875002E7142 /* car sale.jpeg in Resources */,
 				79A116722A1640B3002E7142 /* ravBlue.jpg in Resources */,
+				79A116762A1CA855002E7142 /* rav3.jpg in Resources */,
 				79A1166C2A163837002E7142 /* eyeshow.png in Resources */,
+				79A116772A1CA855002E7142 /* rav2.jpg in Resources */,
 				79A1165E2A162081002E7142 /* LaunchScreen.storyboard in Resources */,
+				79A116782A1CA855002E7142 /* rav1.jpg in Resources */,
 				79A1165B2A162081002E7142 /* Assets.xcassets in Resources */,
 				79A116592A16207B002E7142 /* Main.storyboard in Resources */,
 			);
@@ -165,6 +180,7 @@
 			files = (
 				79A116682A1620EF002E7142 /* ViewControllerTree.swift in Sources */,
 				79A116562A16207B002E7142 /* ViewController.swift in Sources */,
+				793D975B2A1CDB6100A72C67 /* ViewControllerFour.swift in Sources */,
 				79A116522A16207B002E7142 /* AppDelegate.swift in Sources */,
 				79A116542A16207B002E7142 /* SceneDelegate.swift in Sources */,
 				79A116662A1620D7002E7142 /* ViewControllerTwo.swift in Sources */,

@@ -12,6 +12,7 @@ class ViewControllerTwo: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addCar()
+        configureSubviews()
     }
     
     private func addCar() {
@@ -19,6 +20,8 @@ class ViewControllerTwo: UIViewController {
         var heightImage = 80
         var heightBrend = 80
         var heightModel = 80
+        var heightColor = 110
+        var heightPrice = 110
 
         
         
@@ -35,7 +38,7 @@ class ViewControllerTwo: UIViewController {
             btn.frame = CGRect(x: 30, y: heightImage, width: 150, height: 120)
             btn.backgroundColor = UIColor.blue
             btn.layer.cornerRadius = 9
-           // btn.addTarget(self, action: #selector(buttonType), for: .touchUpInside)
+           btn.addTarget(self, action: #selector(buttonType), for: .touchUpInside)
             view.addSubview(btn)
             heightImage += 140
             
@@ -55,28 +58,105 @@ class ViewControllerTwo: UIViewController {
             //labelName.backgroundColor = UIColor.systemGray
             view.addSubview(modellabel)
             heightModel += 140
+            
+            
+            let colorlabel = UILabel()
+            colorlabel.textColor = .black
+            colorlabel.text = value.color
+            colorlabel.frame = CGRect(x: 185, y: heightColor, width: 140, height: 40)
+            colorlabel.font = colorlabel.font.withSize(16)
+            //labelName.backgroundColor = UIColor.systemGray
+            view.addSubview(colorlabel)
+            heightColor += 140
+            
+            let pricelabel = UILabel()
+            pricelabel.textColor = .black
+            pricelabel.text = value.price
+            pricelabel.frame = CGRect(x: 270, y: heightPrice, width: 140, height: 40)
+            pricelabel.font = pricelabel.font.withSize(16)
+            //labelName.backgroundColor = UIColor.systemGray
+            view.addSubview(pricelabel)
+            heightPrice += 140
+        
         }
+        
     }
     
-private func configureSubviews() {
+    private lazy var addCarButton: UIButton = {
+        var addCarButton = UIButton()
+        addCarButton.frame = CGRect(x: 0, y: 630, width: 250, height: 70)
+        addCarButton.center.x = view.center.x
+        addCarButton.setTitle("Добавить авто", for: .normal)
+        addCarButton.tintColor = UIColor.white
+        addCarButton.backgroundColor = UIColor.red
+        addCarButton.layer.cornerRadius = 7
+        addCarButton.addTarget(self, action: #selector(addCar(sender:)), for: .touchUpInside)
+      
+        return addCarButton
+    }()
     
+    
+    
+private func configureSubviews() {
+    view.addSubview(addCarButton)
 }
     
+    @objc func addCar(sender: UIButton) {
+        
+        let play = UIStoryboard(name: "Main", bundle: nil)
+            guard let nextScreen = play.instantiateViewController(identifier: "viewFour") as? ViewControllerFour else { return }
+       
+    self.present(nextScreen, animated: true, completion: nil)
+    nextScreen.modalPresentationStyle = .automatic
+ 
+        cars.append(Car(brend: nextScreen.brendTextField.text ?? "", model: nextScreen.modelTextField.text ?? "", year: nextScreen.yearTextField.text ?? "", color: nextScreen.colorTextField.text ?? "", photo: "", price: "", photos: [""], description: nextScreen.discriptionTextField.text ?? ""))
+     
+//        nextScreen.brendLabel.text = cars[sender.tag].brend
+//        nextScreen.modelLabel.text = cars[sender.tag].model
+//        nextScreen.descriptionText.text = cars[sender.tag].description
+//
+//        nextScreen.imageSong.image = UIImage(named: songs[sender.tag].imageName)
+    }
+    
+    
+    @objc func buttonType(_ sender: UIButton) {
+        
+        let play = UIStoryboard(name: "Main", bundle: nil)
+            guard let nextScreen = play.instantiateViewController(identifier: "viewThree") as? ViewControllerTree else { return }
+       
+        
+    self.present(nextScreen, animated: true, completion: nil)
+    nextScreen.modalPresentationStyle = .automatic
+ 
+     
+        nextScreen.brendLabel.text = cars[sender.tag].brend
+        nextScreen.modelLabel.text = cars[sender.tag].model
+        nextScreen.descriptionText.text = cars[sender.tag].description
+        
+//        nextScreen.imageSong.image = UIImage(named: songs[sender.tag].imageName)
+    }
     
 
 
 
-    var cars: [Car] = [Car(brend: "Toyota", model: "Rav4", year: "2014", color: "Blue", photo: "ravBlue.jpg"),
-                     Car(brend: "Toyota", model: "Rav4", year: "2009", color: "Gold",photo: "ravGold.jpg"),
-                     Car(brend: "Toyota", model: "Alphard", year: "2004", color: "White",photo: "Alphard.jpeg")]
+    var cars: [Car] = [Car(brend: "Toyota", model: "Rav4", year: "2014", color: "Blue", photo: "ravBlue.jpg", price: "2100000p", photos: ["rav1.jpg", "rav2.jpg", "rav3.jpg"], description: """
+        Продаю новый автомобиль,пробег
+        86 км, съездили два раза до МРЭО
+        на нем,остальное время стоял в гараже. Стоят легкосплавные диски с летней резиной,есть штамповка штатная без зимней резины,установлен регистратор,коврики в салоне и багажнике. Все вопросы по телефону,торг у капота
+        """),
+                     Car(brend: "Toyota", model: "Rav4", year: "2009", color: "Gold",photo: "ravGold.jpg", price: "1100000p", photos: [""], description: "2"),
+                     Car(brend: "Toyota", model: "Alphard", year: "2004", color: "White",photo: "Alphard.jpeg", price: "1300000p", photos: [""], description: "3")]
 }
 
 struct Car {
-let brend: String
-let model: String
-let year: String
-let color: String
-let photo: String
+var brend: String
+var model: String
+var year: String
+var color: String
+var photo: String
+var price: String
+var photos: [String]
+var description: String
 
 }
 
