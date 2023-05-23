@@ -124,7 +124,7 @@ class ViewControllerTwo: UIViewController {
         shareButton.setImage(UIImage(systemName: "arrowshape.turn.up.right"), for: .normal)
         shareButton.frame = CGRect(x: 330, y: 40, width: 50, height: 50)
         shareButton.tintColor = UIColor.systemGray
-        shareButton.addTarget(self, action: #selector(shareButtonFunc(sender:)), for: .touchUpInside)
+        shareButton.addTarget(self, action: #selector(shareButton(sender:)), for: .touchUpInside)
         //view.addSubview(shareButton)
         return shareButton
     }()
@@ -203,7 +203,7 @@ class ViewControllerTwo: UIViewController {
     
     // MARK: функции кнопок
     // функция кнопки поделиться
-    @objc func shareButtonFunc(sender: UIButton) {
+    @objc func shareButton(sender: UIButton) {
         let active = UIActivityViewController(activityItems: ["www.Vagner.ru"], applicationActivities: nil)
         active.popoverPresentationController?.sourceView = self.view
         self.present(active, animated: true, completion: nil)
@@ -217,7 +217,7 @@ class ViewControllerTwo: UIViewController {
             
         }
     // временной слайдер песни
-    @IBAction func timeSliderButton(sender: UISlider) {
+    @objc func timeSliderButton(sender: UISlider) {
         player.currentTime = TimeInterval(sender.value)
            }
     
