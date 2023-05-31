@@ -13,14 +13,11 @@ class ViewControllerFour: UIViewController {
         super.viewDidLoad()
         configureSubviews()
         createToolbar()
-
-        
     }
     
     lazy var brendLabel: UILabel = {
        var brendLabel = UILabel()
         brendLabel.frame = CGRect(x: 30, y: 30, width: 150, height: 30)
-        //brendLabel.center.x = view.center.x
         brendLabel.font = brendLabel.font.withSize(20)
         brendLabel.textColor = .systemGray
         brendLabel.text = "Марка авто"
@@ -39,7 +36,6 @@ class ViewControllerFour: UIViewController {
     lazy var modelLabel: UILabel = {
        var modelLabel = UILabel()
         modelLabel.frame = CGRect(x: 30, y: 110, width: 150, height: 30)
-        //brendLabel.center.x = view.center.x
         modelLabel.font = modelLabel.font.withSize(20)
         modelLabel.textColor = .systemGray
         modelLabel.text = "Модель авто:"
@@ -51,14 +47,12 @@ class ViewControllerFour: UIViewController {
         modelTextField.frame = CGRect(x: 30, y: 150, width: 200, height: 30)
         modelTextField.borderStyle = UITextField.BorderStyle.roundedRect
         modelTextField.tintColor = UIColor.systemGray
-        //emailTextField.text = "Your passord"
         return modelTextField
     }()
     
     lazy var colorLabel: UILabel = {
        var colorLabel = UILabel()
         colorLabel.frame = CGRect(x: 30, y: 190, width: 100, height: 30)
-        //brendLabel.center.x = view.center.x
         colorLabel.font = colorLabel.font.withSize(20)
         colorLabel.textColor = .systemGray
         colorLabel.text = "Цвет авто:"
@@ -71,14 +65,12 @@ class ViewControllerFour: UIViewController {
         colorTextField.borderStyle = UITextField.BorderStyle.roundedRect
         colorTextField.tintColor = UIColor.systemGray
         colorTextField.addTarget(self, action: #selector(colorFunc(sender:)), for: .touchDown)
-        //colorTextField.text = ""
         return colorTextField
     }()
     
     lazy var yearLabel: UILabel = {
        var yearLabel = UILabel()
         yearLabel.frame = CGRect(x: 30, y: 270, width: 200, height: 30)
-        //brendLabel.center.x = view.center.x
         yearLabel.font = yearLabel.font.withSize(20)
         yearLabel.textColor = .systemGray
         yearLabel.text = "Год выпуска авто:"
@@ -91,29 +83,47 @@ class ViewControllerFour: UIViewController {
         yearTextField.borderStyle = UITextField.BorderStyle.roundedRect
         yearTextField.tintColor = UIColor.systemGray
         yearTextField.addTarget(self, action: #selector(yearAction(sender:)), for: .touchDown)
-        //colorTextField.text = ""
+        
         return yearTextField
     }()
     
+    lazy var gbddLabel: UILabel = {
+       var gbddLabel = UILabel()
+        gbddLabel.frame = CGRect(x: 30, y: 350, width: 240, height: 30)
+        gbddLabel.font = yearLabel.font.withSize(20)
+        gbddLabel.textColor = .systemGray
+        gbddLabel.text = "Стоит на учете в гибдд?"
+        return gbddLabel
+    }()
+    
+    lazy var gbddSwith: UISwitch = {
+      var gbddSwith = UISwitch()
+        gbddSwith.frame = CGRect(x: 275, y: 350, width: 60, height: 30)
+        gbddSwith.addTarget(self, action: #selector(switchIsOn(target:)), for: .valueChanged)
+       return gbddSwith
+   }()
+    
     lazy var discriptionLabel: UILabel = {
        var discriptionLabel = UILabel()
-        discriptionLabel.frame = CGRect(x: 30, y: 350, width: 150, height: 30)
-        //brendLabel.center.x = view.center.x
+        discriptionLabel.frame = CGRect(x: 30, y: 400, width: 150, height: 30)
         discriptionLabel.font = discriptionLabel.font.withSize(20)
         discriptionLabel.textColor = .systemGray
         discriptionLabel.text = "Описание:"
+      
         return discriptionLabel
     }()
     
+    
+    
      lazy var discriptionTextField: UITextField = {
        var discriptionTextField = UITextField()
-        discriptionTextField.frame = CGRect(x: 30, y: 390, width: 250, height: 250)
-        discriptionTextField.borderStyle = UITextField.BorderStyle.roundedRect
+        discriptionTextField.frame = CGRect(x: 10, y: 430, width: 280, height: 200)
+        discriptionTextField.font = UIFont(name: "HelveticaNeue", size: 12)
         discriptionTextField.tintColor = UIColor.systemGray
-        //yearTextField.addTarget(self, action: #selector(colorFunc(sender:)), for: .valueChanged)
-        discriptionTextField.text = """
-            """
-        //discriptionTextField.addAction(<#T##action: UIAction##UIAction#>, for: .t)
+        discriptionTextField.text =
+       """
+       """
+        
         return discriptionTextField
     }()
     
@@ -130,8 +140,6 @@ class ViewControllerFour: UIViewController {
         return addCarButton
     }()
     
-    
-    
     private func configureSubviews() {
         view.addSubview(brendLabel)
         view.addSubview(brendTextField)
@@ -144,26 +152,23 @@ class ViewControllerFour: UIViewController {
         view.addSubview(yearTextField)
         view.addSubview(discriptionLabel)
         view.addSubview(discriptionTextField)
-        //view.addSubview(createToolbar)
+        view.addSubview(gbddLabel)
+        view.addSubview(gbddSwith)
 }
     
-    @objc  func save(sender: UIButton) {
-    let play = UIStoryboard(name: "Main", bundle: nil)
-        guard let firstScreen = play.instantiateViewController(identifier: "viewTwo") as? ViewControllerTwo else { return }
+    @objc func switchIsOn(target: UISwitch) { // потом придумаю если понадобится
+                if target.isOn {
+        } else {
+      }
+    }
+    
    
-self.present(firstScreen, animated: true, completion: nil)
-        firstScreen.modalPresentationStyle = .automatic
-
-//        firstScreen.cars[sender.tag].brend = brendLabel.text//вытащить изображения с предыдущего экраса
-}
-    
     @objc func addButton(_ sender: UIButton) {
         let contact = UIStoryboard(name: "Main", bundle: nil)
         guard let nextView = contact.instantiateViewController(identifier: "viewTwo") as? ViewControllerTwo else { return }
-//        nextView.nameValue = self.nameTextField.text ?? ""
-//        nextView.birthdayValue = self.dateTextField.text ?? ""
-//        nextView.photo = photo.image
-//        nextView.modalPresentationStyle = .fullScreen
+        
+        nextView.cars.append(Car(brend: self.brendTextField.text ?? "", model: self.modelTextField.text ?? "", year: self.yearTextField.text ?? "", color: self.colorTextField.text ?? "", photo: self.brendLabel.text ?? "", price: self.brendLabel.text ?? "", photos: [""], description: self.discriptionTextField.text ?? ""))
+       // nextView.modalPresentationStyle = .fullScreen
         self.show(nextView, sender: nil)
         
     }
@@ -171,20 +176,17 @@ self.present(firstScreen, animated: true, completion: nil)
     @objc func yearAction(sender: UITextField) {
         let yearPicker = UIPickerView()
         yearPicker.tag = 1
-       
         sender.inputView = yearPicker
         yearPicker.dataSource = self
         yearPicker.delegate = self
     }
     
     @objc func colorFunc(sender: UITextField) {
-        
         let colorPicker = UIPickerView()
         colorPicker.tag = 0
         sender.inputView = colorPicker
         colorPicker.dataSource = self
         colorPicker.delegate = self
-        
     }
     
     @objc func createToolbar()  {
@@ -192,8 +194,6 @@ self.present(firstScreen, animated: true, completion: nil)
         tool.sizeToFit()
         let doneButton = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: #selector(closeKey))
         tool.setItems([doneButton], animated: true)
-        
-        
         colorTextField.inputAccessoryView = tool
         yearTextField.inputAccessoryView = tool
     }
@@ -201,7 +201,6 @@ self.present(firstScreen, animated: true, completion: nil)
     @objc func closeKey()  {
         view.endEditing(true)
     }
-    
 }
 
 extension ViewControllerFour: UIPickerViewDataSource, UIPickerViewDelegate {

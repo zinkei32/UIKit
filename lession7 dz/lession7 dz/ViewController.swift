@@ -21,14 +21,13 @@ class ViewController: UIViewController {
         showButton.setImage(UIImage(named: "eyeshow.png"), for: .normal)
         showButton.tintColor = UIColor.systemGray
         showButton.addTarget(self, action: #selector(showPasswordFunc), for: .touchUpInside)
-        
         return showButton
     }()
     
     private lazy var signInButton: UIButton = {
         var signInButton = UIButton(type: .roundedRect)
         signInButton.frame = CGRect(x: 0, y: 630, width: 250, height: 70)
-            signInButton.center.x = view.center.x
+        signInButton.center.x = view.center.x
         signInButton.setTitle("Вход", for: .normal)
         signInButton.tintColor = UIColor.white
         signInButton.backgroundColor = UIColor.red
@@ -80,7 +79,6 @@ class ViewController: UIViewController {
         emailTextField.frame = CGRect(x: 20, y: 430, width: 200, height: 30)
         emailTextField.borderStyle = UITextField.BorderStyle.roundedRect
         emailTextField.tintColor = UIColor.systemGray
-        //emailTextField.text = "Your passord"
         return emailTextField
     }()
     
@@ -89,8 +87,6 @@ class ViewController: UIViewController {
         passwordTextField.frame = CGRect(x: 20, y: 530, width: 200, height: 30)
         passwordTextField.borderStyle = UITextField.BorderStyle.roundedRect
         passwordTextField.tintColor = UIColor.systemGray
-        //passwordTextField.text = "Your passord"
-        
         
         return passwordTextField
     }()
@@ -105,7 +101,7 @@ class ViewController: UIViewController {
         view.addSubview(textSale)
         view.addSubview(signInButton)
         view.addSubview(showButton)
-//        view.addSubview(passwordTextField)
+
     }
     
     //MARK: Функции
@@ -134,9 +130,6 @@ class ViewController: UIViewController {
             passwordTextField.isSecureTextEntry = true
         }
     }
-    
-    
-    
 }
 
 
